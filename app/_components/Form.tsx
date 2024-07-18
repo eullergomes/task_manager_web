@@ -3,24 +3,27 @@
 const Form = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Formulário enviado com sucesso!');
+    alert("Formulário enviado!");
   }
 
   return (
-    <form onSubmit={handleSubmit} className='lg:px-24 mt-10 flex flex-col gap-4'>
-      <h2 className='font-semibold text-3xl'>Adicionar Tarefa</h2>
-
+    <form onSubmit={handleSubmit} className='mt-2 flex flex-col gap-4 w-full'>
       <div className='mt-4'>
-        <label htmlFor="description">Título</label>
+        <label htmlFor="description" className="font-semibold">Título<span className="text-red-600">*</span></label>
         <input type="text" className='bg-slate-200 rounded-md p-2 w-full'/>
       </div>
 
       <div>
-        <label htmlFor="description">Descrição</label>
-        <input type="text" className='bg-slate-200 rounded-md p-2 w-full'/>
+        <label htmlFor="description" className="font-semibold">Data<span className="text-red-600">*</span></label>
+        <input type="date" name="" id="" className='bg-slate-200 rounded-md p-2 w-full'/>
       </div>
 
-      <button type="submit" className='bg-green-500 p-4 w-64 rounded-lg'>Salvar</button>
+      <div>
+        <label htmlFor="description" className="font-semibold">Descrição</label>
+        <textarea name="" id="" className='resize-none bg-slate-200 rounded-md p-2 w-full h-28'></textarea>
+      </div>
+
+      <button type="submit" className='bg-green-500 p-3 rounded-lg w-full text-white font-semibold hover:opacity-85'>Salvar</button>
     </form>
   );
 }
